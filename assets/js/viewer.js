@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pdfFile = urlParams.get('file');
     
     if (pdfFile) {
-        loadPDF(`pdf-container/${pdfFile}`);
+        loadPDF(`PdfContainer/${pdfFile}`);
     }
 });
 
