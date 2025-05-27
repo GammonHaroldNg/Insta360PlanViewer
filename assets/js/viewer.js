@@ -22,20 +22,21 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', debounce(() => renderPage(pageNum), 250);
 });
 
-// Load PDF (using a sample if no file specified)
-function loadPDF(file) {
-    const pdfPath = file ? `samples/${file}` : 'samples/sample.pdf';
-    
-    pdfjsLib.getDocument(pdfPath).promise
-        .then(pdfDoc_ => {
-            pdfDoc = pdfDoc_;
-            renderPage(1);
-            loadMarkers();
-        })
-        .catch(error => {
-            console.error('PDF load error:', error);
-            alert('Error loading PDF. Please try another file.');
-        });
+// Load PDF from localStorage (or fake server)
+function loadPDF(filename) {
+  const pdfUrl = localStorage.getItem(`pdf-${filename}`) || 
+                 `pdf-container/${filename}`;
+  
+  pdfjsLib.getDocument(pdfUrl).promise
+    .then(pdf => {
+      pdfDoc = pdf;
+      renderPage(1);
+    })
+    .catch(error => {
+      console.error('Failed to load PDF:', error);
+      alert('PDF not found. Upload it first from the main page.');
+      window.location.href = 'index.html';
+    });
 }
 
 // Marker functions
