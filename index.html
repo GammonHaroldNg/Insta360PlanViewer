@@ -3,28 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Floor Plan Uploader</title>
+    <title>Floor Plan Viewer</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Floor Plan Documentation</h1>
-        
-        <div class="upload-area" id="dropZone">
-            <input type="file" id="fileInput" accept=".pdf" multiple>
-            <label for="fileInput" class="upload-label">
-                <span class="upload-icon">+</span>
-                <p>Drag & drop PDF files here or click to browse</p>
-            </label>
-        </div>
-        
+        <h1>Floor Plan Gallery</h1>
         <div class="thumbnails-container" id="thumbnailsContainer">
-            <!-- Thumbnails will be added here dynamically -->
+            <!-- Thumbnails load here dynamically -->
+            <div class="loading">Loading PDF thumbnails...</div>
         </div>
     </div>
 
-    <!-- PDF.js from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
-    <script src="assets/js/upload.js"></script>
+    <script src="assets/js/gallery.js"></script>
 </body>
 </html>
