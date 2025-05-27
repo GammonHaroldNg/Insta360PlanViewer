@@ -18,43 +18,13 @@ body {
 h1 {
     text-align: center;
     color: #2c3e50;
-}
-
-.upload-area {
-    border: 2px dashed #3498db;
-    border-radius: 5px;
-    padding: 30px;
-    text-align: center;
-    margin: 20px 0;
-    transition: all 0.3s;
-    background-color: #f8fafc;
-}
-
-.upload-area:hover {
-    border-color: #2980b9;
-    background-color: #f0f7fd;
-}
-
-.upload-label {
-    cursor: pointer;
-    display: block;
-}
-
-.upload-icon {
-    font-size: 50px;
-    color: #3498db;
-    margin-bottom: 10px;
-}
-
-#fileInput {
-    display: none;
+    margin-bottom: 30px;
 }
 
 .thumbnails-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
-    margin-top: 30px;
 }
 
 .thumbnail {
@@ -87,7 +57,9 @@ h1 {
     text-overflow: ellipsis;
 }
 
-.highlight {
-    border-color: #27ae60;
-    background-color: #e8f5e9;
+.loading {
+    text-align: center;
+    grid-column: 1 / -1;
+    padding: 40px;
+    color: #7f8c8d;
 }
