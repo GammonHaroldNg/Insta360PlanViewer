@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+    <link rel="stylesheet" href="assets/css/viewer.css">
+</head>
+<body>
+    <div class="viewer-container">
+        <div class="toolbar">
+            <button id="backBtn" class="tool-btn">← Back</button>
+            <button id="markBtn" class="tool-btn">Add Marks</button>
+            <button id="moveBtn" class="tool-btn">Move Marks</button>
+            <span id="fileName">Loading PDF...</span>
+        </div>
+        
+        <div class="pdf-container">
+            <canvas id="pdfCanvas"></canvas>
+            <div id="markersLayer"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script src="assets/js/viewer.js"></script>
+</body>
+</html>
