@@ -1,4 +1,4 @@
-// Set PDF.js worker path (CDN)
+// PDF.js config
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
 
 // DOM elements
@@ -24,19 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Load PDF from localStorage (or fake server)
 function loadPDF(filename) {
-  const pdfUrl = localStorage.getItem(`pdf-${filename}`) || 
-                 `pdf-container/${filename}`;
-  
-  pdfjsLib.getDocument(pdfUrl).promise
-    .then(pdf => {
-      pdfDoc = pdf;
-      renderPage(1);
-    })
-    .catch(error => {
-      console.error('Failed to load PDF:', error);
-      alert('PDF not found. Upload it first from the main page.');
-      window.location.href = 'index.html';
-    });
+    const pdfUrl = `pdf-container/${filename}`;
+    
+    pdfjsLib.getDocument(pdfUrl).promise
+        .then(pdf => {
+            pdfDoc = pdf;
+            fileName.textContent = filename;
+            renderPage(1);
+        })
+        .catch(error => {
+            console.error('Failed to load PDF:', error);
+            alert('PDF failed to load. Please try another file.');
+            window.location.href = 'index.html';
+        });
 }
 
 // Marker functions
